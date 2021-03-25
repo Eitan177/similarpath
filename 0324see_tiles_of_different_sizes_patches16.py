@@ -107,26 +107,26 @@ def datain(tilesize,levels): #tcga_location_2240,file_2240,tcga_location_896,fil
     file_use=[]
     maglevel=np.where(levels==tilesize)[0][0]
 
-    urls=['https://www.dropbox.com/s/2gi9pvevxvxivet/location_12files_truncate_pkl40.hd5?dl=0',\
-    'https://www.dropbox.com/s/ocodemyp0se849c/location_12files_truncate_pkl41.hd5?dl=0',\
-    'https://www.dropbox.com/s/68924qw50zzrj67/location_12files_truncate_pkl42.hd5?dl=0',\
-    'https://www.dropbox.com/s/lkwjkfcpvj3l1rh/location_12files_truncate_pkl43.hd5?dl=0',\
-    'https://www.dropbox.com/s/dhur5yu33sc36t1/location_12files_truncate_pkl44.hd5?dl=0',\
-    'https://www.dropbox.com/s/cahn221jqczyycx/location_12files_truncate_pkl45.hd5?dl=0',\
-    'https://www.dropbox.com/s/m24ssdft4zfgnvb/location_12files_truncate_pkl46.hd5?dl=0',\
-    'https://www.dropbox.com/s/b9u0s8qmfvz5n02/location_12files_truncate_pkl47.hd5?dl=0',\
-    'https://www.dropbox.com/s/0yc5cyef9rdngcn/location_12files_truncate_pkl48.hd5?dl=0',\
-    'https://www.dropbox.com/s/l5gt8c8zq4q4mj6/location_12files_truncate_pkl49.hd5?dl=0',\
-    'https://www.dropbox.com/s/ufl54i6kak5qm2z/location_12files_truncate_pkl410.hd5?dl=0',\
-    'https://www.dropbox.com/s/tpgsjdtee6dksbm/location_12files_truncate_pkl411.hd5?dl=0']
-    ]
-    locf='location_12files_truncate_pkl4'+str(maglevel)+'.hd5','tcga_location'+str(maglevel)
+    url=['https://www.dl.dropboxusercontent.com/s/2gi9pvevxvxivet/location_12files_truncate_pkl40.hd5?dl=0',\
+    'https://www.dl.dropboxusercontent.com/s/ocodemyp0se849c/location_12files_truncate_pkl41.hd5?dl=0',\
+    'https://www.dl.dropboxusercontent.com/s/68924qw50zzrj67/location_12files_truncate_pkl42.hd5?dl=0',\
+    'https://www.dl.dropboxusercontent.com/s/lkwjkfcpvj3l1rh/location_12files_truncate_pkl43.hd5?dl=0',\
+    'https://www.dl.dropboxusercontent.com/s/dhur5yu33sc36t1/location_12files_truncate_pkl44.hd5?dl=0',\
+    'https://www.dl.dropboxusercontent.com/s/cahn221jqczyycx/location_12files_truncate_pkl45.hd5?dl=0',\
+    'https://www.dl.dropboxusercontent.com/s/m24ssdft4zfgnvb/location_12files_truncate_pkl46.hd5?dl=0',\
+    'https://www.dl.dropboxusercontent.com/s/b9u0s8qmfvz5n02/location_12files_truncate_pkl47.hd5?dl=0',\
+    'https://www.dl.dropboxusercontent.com/s/0yc5cyef9rdngcn/location_12files_truncate_pkl48.hd5?dl=0',\
+    'https://www.dl.dropboxusercontent.com/s/l5gt8c8zq4q4mj6/location_12files_truncate_pkl49.hd5?dl=0',\
+    'https://www.dl.dropboxusercontent.com/s/ufl54i6kak5qm2z/location_12files_truncate_pkl410.hd5?dl=0',\
+    'https://www.dl.dropboxusercontent.com/s/tpgsjdtee6dksbm/location_12files_truncate_pkl411.hd5?dl=0']
+    
+    locf='location_12files_truncate_pkl4'+str(maglevel)+'.hd5'
+   
     if len(glob(locf))==0:
-        st.write('Downloading Location Files')
         urllib.request.urlretrieve(url[maglevel],locf)
   
-    location_use=pd.read_hdf('locations_12files.hd5','tcga_location'+str(maglevel))
-    #location_use=pd.read_hdf('location_12files_truncate_pkl4'+str(maglevel)+'.hd5','tcga_location'+str(maglevel))
+    #location_use=pd.read_hdf('locations_12files.hd5','tcga_location'+str(maglevel))
+    location_use=pd.read_hdf('location_12files_truncate_pkl4'+str(maglevel)+'.hd5','tcga_location'+str(maglevel))
     
     
     cancers_tcga=['ACC', 'BLCA', 'BRCA', 'CESC', 'CHOL', 'COAD', 'DLBC', 'ESCA',\
